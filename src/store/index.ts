@@ -4,9 +4,10 @@ import {
   configureStore,
 } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { tasksReducer } from "./task/TaskSlice";
 
 const rootReducer = combineReducers({
-  // insert the slices reducers
+  tasks: tasksReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
