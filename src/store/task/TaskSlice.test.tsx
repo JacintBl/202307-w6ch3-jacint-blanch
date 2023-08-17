@@ -1,4 +1,6 @@
+import { Task } from "../../types";
 import {
+  addTaskActionCreator,
   deleteTaskActionCreator,
   loadTasksActionCreator,
   tasksReducer,
@@ -46,6 +48,25 @@ describe("Given a tasksReducer reducer", () => {
         const newTaskState = tasksReducer(currentTaskState, deleteTaskAction);
 
         expect(newTaskState.tasks).not.toContain(tasksMock[1]);
+      });
+
+      describe("When it receives a add Bug action with one Bug", () => {
+        test("Then it should return a new state with the received Bug ");
+
+        const newTask: Task = {
+          id: 1,
+          name: "uri",
+          isDone: true,
+        };
+        const currentState: TaskState = {
+          tasks: [],
+        };
+
+        const addTaskAction = addTaskActionCreator(newTask);
+
+        const newTaskState = tasksReducer(currentState, addTaskAction);
+
+        expect(newTaskState.tasks).toContain(newTask);
       });
     });
   });
